@@ -13,7 +13,7 @@ const Navbar = () => {
     { href: "#testimonials", label: "Testimonials" }
   ]
   return (
-    <header className='fixed left-0 top-0 right-0 bg-transparent py-5'>
+    <header className='fixed left-0 top-0 right-0 z-50 bg-transparent py-5'>
       <nav className='container mx-auto px-6 flex items-center justify-between'>
         <a href='#' className='text-xl font-bold tracking-tight hover:text-primary'>
           MK<span className='text-primary'>.</span>
