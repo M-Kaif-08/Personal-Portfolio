@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '../components/Button'
+import { ArrowRight } from 'lucide-react'
 
 const Hero = () => {
   return (
@@ -14,7 +16,7 @@ const Hero = () => {
       </div>
 
       {/* Green Dots */}
-      <div className='absolute inset-0 overflow-hidden pointer-events-none'>
+      <div className='absolute inset-0 -z-10 overflow-hidden pointer-events-none'>
         {[...Array(30)].map((_, i) => (
           <div
             key={i}
@@ -28,6 +30,48 @@ const Hero = () => {
             }}
           />
         ))}
+      </div>
+
+      {/* Content */}
+      <div className='container mx-auto px-6 pt-32 pb-20 relative z-10'>
+        <div className='grid lg:grid-cols-2 gap-12 items-center'>
+          {/* Left Column - Text Content */}
+          <div className='space-y-8'>
+            <div className='animate-fade-in'>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
+                <span className='w-2 h-2 rounded-full bg-primary animate-pulse' />
+                ComputerScience Student - MERN Stack Developer
+              </span>
+            </div>
+
+            {/* Headline */}
+            <div className='space-y-4'>
+              <h1 className='text-5xl md:text-6xl lg:text-7xl leading-tight font-bold animate-fade-in animation-delay-200'>
+                Developing <span className='text-primary glow-text'>digital</span>
+                <br />
+                products with
+                <br />
+                <span className='font-serif1 italic font-normal text-white'>precision.</span>
+              </h1>
+              <p className='text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-400'>
+                Hi, I'm Muhammad Kaif - a Full Stack Web Developer specializing in
+                React, Express.js, Node.js, MonogoDB and Next.js. I build scalable,
+                performant web applications.
+              </p>
+            </div>
+
+            {/* Buttons  */}
+            <div>
+              <Button size='lg'>
+                Contact Me <ArrowRight className='h-5 w-5'/>
+              </Button>
+            </div>
+          </div>
+          {/* Right Column - Image Content */}
+          <div>
+
+          </div>
+        </div>
       </div>
     </section>
   )

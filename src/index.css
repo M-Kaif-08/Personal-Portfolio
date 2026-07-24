@@ -37,7 +37,7 @@
 }
 
 @layer components {
-  .font-serif {
+  .font-serif1 {
     font-family: "Playfair Display", serif;
   }
 
@@ -51,6 +51,10 @@
     background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
     backdrop-filter: blur(24px);
     border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 30px color-mix(in srgb, var(--color-primary), 50% transparent)
   }
 }
 
@@ -92,5 +96,29 @@
 
   .animate-fade-in {
     animation: fade-in 0.8s ease-out both;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
   }
 }
