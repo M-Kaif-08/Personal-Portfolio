@@ -25,9 +25,8 @@ const Navbar = () => {
   ]
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
-        isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
-      }  z-50`}
+      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
+        }  z-50`}
     >
       <nav className='container mx-auto px-6 flex items-center justify-between'>
         <a href='#' className='text-xl font-bold tracking-tight hover:text-primary'>
@@ -53,9 +52,16 @@ const Navbar = () => {
       {MobileMenuBtn && <div className='md:hidden glass-strong animate-fade-in'>
         <div className='container mx-auto flex flex-col p-6 gap-3'>
           {navLinks.map((link, index) => (
-            <a key={index} href={link.href} className='py-2 text-lg text-muted-foreground hover:text-foreground'>{link.label}</a>
+            <a
+              key={index}
+              href={link.href}
+              className='py-2 text-lg text-muted-foreground hover:text-foreground'
+              onClick={() => setMobileMenuBtn(false)}
+            >
+              {link.label}
+            </a>
           ))}
-          <Button>Contact Me</Button>
+          <Button onClick={() => setMobileMenuBtn(false)}>Contact Me</Button>
         </div>
       </div>
       }
