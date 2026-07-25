@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from '../components/Button'
-import { ArrowRight } from 'lucide-react'
+import AnimatedBorderButton from '../components/AnimatedBorderButton'
+import { ArrowRight, Download } from 'lucide-react'
+import { FiGithub, FiInstagram } from "react-icons/fi";
 
 const Hero = () => {
   return (
@@ -33,7 +35,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className='container mx-auto px-6 pt-32 pb-20 relative z-10'>
+      <div className='container mx-auto px-6 pt-24 pb-20 relative z-10'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           {/* Left Column - Text Content */}
           <div className='space-y-8'>
@@ -46,14 +48,14 @@ const Hero = () => {
 
             {/* Headline */}
             <div className='space-y-4'>
-              <h1 className='text-5xl md:text-6xl lg:text-7xl leading-tight font-bold animate-fade-in animation-delay-200'>
+              <h1 className='text-5xl md:text-6xl lg:text-7xl leading-tight font-bold animate-fade-in animation-delay-100'>
                 Developing <span className='text-primary glow-text'>digital</span>
                 <br />
                 products with
                 <br />
                 <span className='font-serif1 italic font-normal text-white'>precision.</span>
               </h1>
-              <p className='text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-400'>
+              <p className='text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-300'>
                 Hi, I'm Muhammad Kaif - a Full Stack Web Developer specializing in
                 React, Express.js, Node.js, MonogoDB and Next.js. I build scalable,
                 performant web applications.
@@ -61,10 +63,32 @@ const Hero = () => {
             </div>
 
             {/* Buttons  */}
-            <div>
+            <div className='flex flex-wrap gap-5 justify-center items-center animate-fade-in animation-delay-400'>
               <Button size='lg'>
                 Contact Me <ArrowRight className='h-5 w-5'/>
               </Button>
+              <AnimatedBorderButton>
+                <Download className='h-5 w-5' />
+                Download CV
+              </AnimatedBorderButton>
+            </div>
+
+            {/* Social Links */}
+            <div className='flex items-center gap-4 animate-fade-in animation-delay-500'>
+              <span className='text-muted-foreground'>Follow Me:</span>
+              {[
+                { icon: FiGithub, href: "https://github.com/M-Kaif-08" },
+                { icon: FiInstagram, href: "https://www.instagram.com/kaif_sheikh_08" }
+              ].map((social, index) => (
+                <a 
+                key={index} 
+                href={social.href} 
+                target='_blank'
+                className='p-2 rounded-full glass bg-primary/10 hover:text-primary transition-all duration-300'
+                >
+                  < social.icon className='h-5 w-5' />
+                </a>
+              ))}
             </div>
           </div>
           {/* Right Column - Image Content */}
