@@ -55,7 +55,7 @@ const About = () => {
             </div>
           </div>
           {/* Right Column - Highlight */}
-          <div className='grid sm:grid-cols-2 gap-6'>
+          <div className='grid lg:grid-cols-2 gap-6'>
             {highlights.map((item, index) => (
               <div
                 key={index}

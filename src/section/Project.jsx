@@ -1,4 +1,7 @@
 import React from 'react'
+import { FiGithub } from "react-icons/fi";
+import AnimatedBorderButton from "../components/AnimatedBorderButton"
+import { MdArrowOutward } from "react-icons/md";
 
 const projects = [
   {
@@ -42,6 +45,57 @@ const Project = () => {
               {" "}make an impact.
             </span>
           </h2>
+        </div>
+        {/* Project Grid */}
+        <div className='grid md:grid-cols-2 gap-8'>
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className='group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1'
+              style={{ animationDelay: `${(index + 1) * 100}ms` }}
+            >
+              {/* Projects Images */}
+              <div className='relative overflow-hidden aspect-video'>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+                />
+                <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+                  <a href={project.github} target='_blank' className='p-3 bg-gray-300 rounded-full hover:bg-primary'>
+                    <FiGithub className='w-5 h-5 text-black' />
+                  </a>
+                </div>
+              </div>
+              {/* content */}
+              <div className='p-6 space-y-3'>
+                <div>
+                  <h3 className='text-xl font-semibold group-hover:text-primary'>
+                    {project.title}
+                  </h3>
+                </div>
+                <p className='text-muted-foreground text-sm'>
+                  {project.description}
+                </p>
+                <div className='flex flex-wrap gap-3'>
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className='bg-surface px-5 py-2 rounded-full text-xs font-medium border border-border text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300'
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* View all the Projects */}
+        <div className='text-center mt-12 animate-fade-in animation-delay-500'>
+          <AnimatedBorderButton>
+            <a href="https://github.com/M-Kaif-08" target='_blank'>View All Projects</a><MdArrowOutward className='w-6 h-6' />
+          </AnimatedBorderButton>
         </div>
       </div>
     </section>
