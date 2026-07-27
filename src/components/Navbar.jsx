@@ -20,8 +20,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#testimonials", label: "Testimonials" }
+    { href: "#projects", label: "Projects" }
   ]
   return (
     <header
@@ -41,7 +40,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className='hidden md:block'>
-          <Button size='sm'>Contact Me</Button>
+          <a href="#contact"><Button size='sm'>Contact Me</Button></a>
         </div>
         {/* Mobile Menu button */}
         <button onClick={() => setMobileMenuBtn((prev) => !prev)} className='md:hidden p-2 text-foreground cursor-pointer'>
@@ -61,7 +60,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button onClick={() => setMobileMenuBtn(false)}>Contact Me</Button>
+          <a href="#contact" onClick={() => setMobileMenuBtn(false)}><Button>Contact Me</Button></a>
         </div>
       </div>
       }

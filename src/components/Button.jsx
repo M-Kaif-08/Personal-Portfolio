@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ classname = "", size = "default", children }) => {
+const Button = ({ classname = "", size = "default", children, ...props }) => {
 
     const baseClasses = "realtive overflow-hidden rounded-full font-medium cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25"
 
@@ -12,7 +12,7 @@ const Button = ({ classname = "", size = "default", children }) => {
 
     const classes = `${baseClasses} ${sizeClasses[size]} ${classname}`;
     return (
-        <button className={classes}>
+        <button className={classes} {...props}>
             <span className='relative flex justify-center items-center gap-2'>
                 {children}
             </span>

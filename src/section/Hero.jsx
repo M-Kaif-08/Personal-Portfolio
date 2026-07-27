@@ -77,9 +77,11 @@ const Hero = () => {
 
             {/* Buttons  */}
             <div className='flex flex-wrap gap-5 justify-center items-center animate-fade-in animation-delay-400'>
-              <Button size='lg'>
-                Contact Me <ArrowRight className='h-5 w-5' />
-              </Button>
+              <a href="#contact">
+                <Button size='lg'>
+                  Contact Me <ArrowRight className='h-5 w-5' />
+                </Button>
+              </a>
               <AnimatedBorderButton>
                 <Download className='h-5 w-5' />
                 Download CV
