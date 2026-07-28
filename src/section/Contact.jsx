@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser';
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import Button from "../components/Button"
-import { FiSend } from "react-icons/fi";
+import { FiSend, FiAlertTriangle } from "react-icons/fi";
+import { FaRegCircleCheck } from "react-icons/fa6";
 
 const contactInfo = [
   {
@@ -29,8 +31,47 @@ const Contact = () => {
 
   const [formData, setformData] = useState({ name: "", email: "", message: "" })
 
-  const handleSubmit = async (e) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState({
+    type: null,
+    message: ""
+  })
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus({ type: null, message: "" });
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLETE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          "EmailJS configuration is missing. Please check your environment variables."
+        );
+      }
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      }, publicKey);
+
+      setSubmitStatus({
+        type: "success",
+        message: "Message send successfully! I'll get back to you soon"
+      });
+      setformData({ name: "", email: "", message: "" });
+
+    } catch (err) {
+      console.error("Emailjs error:", err)
+      setSubmitStatus({
+        type: "Error",
+        message: err.text || "Failed to send message. Please try again later."
+      });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -53,7 +94,7 @@ const Contact = () => {
         </div>
         <div className='grid lg:grid-cols-2 gap-12 mx-auto max-w-5xl'>
           <div className='glass p-8 rounded-3xl border border-primary/30 animate-fade-in amimation-delay-300'>
-            <form className='space-y-6'>
+            <form className='space-y-6' onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -105,7 +146,31 @@ const Contact = () => {
                   className='border w-full px-4 py-3 rounded-2xl border-border focus:border-primary/50 outline-none transition-all resize-none'
                 />
               </div>
-              <Button classname='w-full' size='lg' type='submit'>Send Message<FiSend className='w-6 h-6' /></Button>
+              <Button classname='w-full' size='lg' type='submit' disabled={isLoading}>
+                {isLoading ? (
+                  <>Sending...</>
+                ) :
+                  (
+                    <>Send Message<FiSend className='w-5 h-5' /></>
+                  )
+                }
+              </Button>
+              {submitStatus.type && (
+                <div
+                  className={`flex items-center gap-3
+                     p-4 rounded-xl ${submitStatus.type === "success"
+                      ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                      : "bg-red-500/10 border border-red-500/20 text-red-400"
+                    }`}
+                >
+                  {submitStatus.type === "success" ? (
+                    <FaRegCircleCheck className="w-5 h-5 shrink-0" />
+                  ) : (
+                    <FiAlertTriangle className="w-5 h-5 shrink-0" />
+                  )}
+                  <p className="text-sm">{submitStatus.message}</p>
+                </div>
+              )}
             </form>
           </div>
         </div>
