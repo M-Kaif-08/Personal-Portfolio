@@ -7,7 +7,7 @@ A modern, responsive, and interactive personal portfolio website built with **Re
 🔗 https://personal-portfolio-woad-pi-96.vercel.app
 
 ## 📸 Preview
-
+![alt text](Preview.png)
 
 
 ---
