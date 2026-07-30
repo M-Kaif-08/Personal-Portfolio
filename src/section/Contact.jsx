@@ -76,7 +76,7 @@ const Contact = () => {
 
   return (
     <section id='contact' className='py-18 relative overflow-hidden'>
-      <div className='container mx-auto px-12 relative z-10'>
+      <div className='container mx-auto px-2 md:px-12 relative z-10'>
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
             Get In Touch
@@ -92,9 +92,9 @@ const Contact = () => {
             and let's discuss how we can work together.
           </p>
         </div>
-        <div className='grid lg:grid-cols-2 gap-12 mx-auto max-w-5xl'>
-          <div className='glass p-8 rounded-3xl border border-primary/30 animate-fade-in amimation-delay-300'>
-            <form className='space-y-6' onSubmit={handleSubmit}>
+        <div className='grid lg:grid-cols-2 gap-12 mx-auto w-full md:max-w-5xl'>
+          <div className='glass p-4 md:p-8 rounded-3xl border border-primary/30 animate-fade-in amimation-delay-300'>
+            <form className='space-y-6 min-w-0' onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -185,7 +185,7 @@ const Contact = () => {
                     key={i}
                     href={item.href}
                     target='_blank'
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
+                    className="md:flex flex-row items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
                   >
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <item.icon className="w-5 h-5 text-primary" />
@@ -194,7 +194,7 @@ const Contact = () => {
                       <div className="text-sm text-muted-foreground">
                         {item.label}
                       </div>
-                      <div className="font-medium">{item.value}</div>
+                      <div className="font-medium w-full">{item.value}</div>
                     </div>
                   </a>
                 ))}

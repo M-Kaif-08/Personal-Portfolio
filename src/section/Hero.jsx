@@ -55,7 +55,7 @@ const Hero = () => {
             <div className='animate-fade-in'>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className='w-2 h-2 rounded-full bg-primary animate-pulse' />
-                ComputerScience Student - MERN Stack Developer
+                Full Stack Developer - React & Next.js Enthusiast
               </span>
             </div>
 
@@ -69,9 +69,7 @@ const Hero = () => {
                 <span className='font-serif1 italic font-normal text-white'>precision.</span>
               </h1>
               <p className='text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-300'>
-                Hi, I'm Muhammad Kaif - a Full Stack Web Developer specializing in
-                React, Express.js, Node.js, MonogoDB and Next.js. I build scalable,
-                performant web applications.
+                Hi, I'm Muhammad Kaif - Full Stack Web Developer. I build fast, scalable web applications using React, Next.js, Node.js, Express, and MongoDB.
               </p>
             </div>
 
@@ -89,7 +87,7 @@ const Hero = () => {
             </div>
 
             {/* Social Links */}
-            <div className='flex items-center gap-4 animate-fade-in animation-delay-500'>
+            <div className='flex items-center justify-center gap-4 animate-fade-in animation-delay-500'>
               <span className='text-muted-foreground'>Follow Me:</span>
               {[
                 { icon: FiGithub, href: "https://github.com/M-Kaif-08" },
